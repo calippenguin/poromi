@@ -47,14 +47,13 @@
           }
 
         /* 클릭된 상태(활성화) 스타일 */
-        input[type="radio"]:checked + .tab-button {
+        input[type="radio"]:checked + .tab-button,
+        input[type="radio"]:checked + .tab-button:hover {
               background-color: #ff85a2 !important; 
               border-color: #ff85a2 !important;
-              color: white !important;             
-              border-bottom: 2px solid #ff85a2;    
-              z-index: 3;
+              color: white !important;
+              border-bottom: 2px solid #ff85a2; 
           }
-
        /* 본문 박스 스타일 */
         .main-box {
               width: 100%;
