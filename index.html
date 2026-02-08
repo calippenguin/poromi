@@ -2,22 +2,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>프로필</title>
+<title>Streamer Poromi</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="nav"></div>
+<nav>
+  <button onclick="openTab('profile')">프로필</button>
+  <button onclick="openTab('about')">자기소개</button>
+  <button onclick="openTab('games')">게임 목록</button>
+  <button onclick="openTab('history')">방송 이력</button>
+</nav>
 
 <div class="container">
-  <h1>개인 프로필 소개</h1>
-  내용 작성
+
+  <div id="profile" class="tab">
+    <h1>개인 프로필</h1>
+    <p>닉네임: Poromi</p>
+    <p>주 콘텐츠: 종합 게임</p>
+  </div>
+
+  <div id="about" class="tab">
+    <h1>자기소개</h1>
+    <p>
+      편안한 분위기의 종합 게임 스트리머입니다.
+    </p>
+  </div>
+
+  <div id="games" class="tab">
+    <h1>진행한 게임</h1>
+    <ul>
+      <li>엘든 링</li>
+      <li>디트로이트</li>
+      <li>언더테일</li>
+    </ul>
+  </div>
+
+  <div id="history" class="tab">
+    <h1>방송 이력</h1>
+    <ul>
+      <li>2026-02-01 엘든 링 시작</li>
+      <li>2026-02-03 보스 클리어</li>
+    </ul>
+  </div>
+
 </div>
 
 <script>
-fetch("nav.html")
-  .then(res => res.text())
-  .then(data => document.getElementById("nav").innerHTML = data);
+function openTab(tabId) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => tab.style.display = 'none');
+
+  document.getElementById(tabId).style.display = 'block';
+}
+
+// 처음 로딩 시 프로필 탭 열기
+openTab('profile');
 </script>
 
 </body>
