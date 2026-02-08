@@ -62,87 +62,86 @@
             display: block;
         }
 
-        h2 { margin-top: 0; color: #333; }
-
-          /* 프로필 탭 전체 컨테이너 */
-          /* 상단 영역: 글(왼쪽) + 사진(오른쪽) */
-          .profile-container {
-              display: flex;      
+        /* -------------------------------------------
+             5. 프로필 탭 내부 레이아웃 (핵심 수정 부분)
+          ---------------------------------------------- */
+          
+          /* 상단 영역: 왼쪽 정보 + 오른쪽 사진 */
+          .profile-header {
+              display: flex;
               justify-content: space-between;
-              align-items: flex-start;
-              gap: 30px;
-              margin-bottom: 30px;
+              align-items: flex-start; /* 위쪽 정렬 */
+              gap: 40px;
+              margin-bottom: 40px;
           }
           
-          /* 이미지 사이드 */
-          .profile-text-info {
-              flex: 1; /* 글 영역이 남는 공간 차지 */
+          .profile-basic-info {
+              flex: 1; /* 텍스트가 남는 공간 다 차지 */
               text-align: left;
           }
           
-          .profile-img {
-              width: 100%;
-              height: auto;
-              border-radius: 30px;
-              border: 5px solid #00adef; 
-              box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-          }
-          
-          /* 설명 사이드 */
-          .profile-info-side {
-              flex: 1;            /* 남은 공간을 모두 차지 */
-          }
-          
           .profile-title {
-              font-size: 2.5rem;   /* 제목을 아주 크게 */
-              margin-bottom: 20px;
-              border-bottom: 2px solid #eee; /* 제목 아래 선 추가 */
-              padding-bottom: 10px;
-          }
-
-          .profile-image-box {
-              flex: 0 0 300px; /* 사진 크기 고정 */
-          }
-          .profile-image-box img {
-              width: 100%;
-              border-radius: 20px;
-              border: 3px solid #00adef;
-              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+              font-size: 2rem;
+              margin: 0 0 10px 0;
+              color: #333;
           }
           
           .info-list {
-              list-style: none;   /* 불렛 제거 */
+              list-style: none;
               padding: 0;
               margin: 20px 0;
           }
           
           .info-list li {
-              font-size: 1.3rem;   /* 리스트 글자 크기 */
-              margin-bottom: 15px; /* 줄 간격 */
-              color: #555;
+              font-size: 1.15rem;
+              margin-bottom: 12px;
+              color: #444;
+              line-height: 1.5;
           }
-
-          /* 하단 영역: 목표 박스들 */
-          .profile-bottom-section {
+          
+          /* 이미지 박스: 닉네임~장비 리스트 바로 옆에 위치 */
+          .profile-main-img {
+              flex: 0 0 380px; /* 이미지 너비를 큼직하게 고정 */
+          }
+          
+          .profile-main-img img {
+              width: 100%;
+              height: auto;
+              border-radius: 25px;
+              border: 4px solid #00adef;
+              box-shadow: 0 8px 20px rgba(0,173,239,0.15);
+          }
+          
+          /* 하단 목표 영역: 가로를 꽉 채워 비어 보이지 않게 함 */
+          .profile-details {
               display: flex;
-              flex-direction: column; /* 세로로 나열 */
+              flex-direction: column;
               gap: 20px;
           }
-         .goal-box {
-              background: #fdfdfd;
+          
+          .goal-section {
+              background: #fcfcfc;
               border: 1px solid #eee;
-              padding: 25px;
-              border-radius: 15px;
+              padding: 30px;
+              border-radius: 20px;
               text-align: left;
           }
           
-          .goal-box h3 {
+          .goal-section h3 {
               margin-top: 0;
+              font-size: 1.3rem;
               color: #333;
               border-left: 5px solid #00adef;
               padding-left: 15px;
           }
           
-          /* 리스트 스타일 정리 */
-          .info-list { list-style: none; padding: 0; }
-          .info-list li { margin-bottom: 8px; font-size: 1.1rem; }
+          .goal-section ul {
+              margin-top: 15px;
+              padding-left: 20px;
+          }
+          
+          .goal-section li {
+              font-size: 1.1rem;
+              margin-bottom: 10px;
+              color: #555;
+          }
