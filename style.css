@@ -40,14 +40,14 @@
             color: white;
         }
 
-        /* 본문 박스 스타일 */
-       .main-box {
-         height: 400px; /* 높이를 고정 */
-         overflow-y: auto; /* 내용이 넘치면 상자 안에서 스크롤 생성 */
-         padding: 40px;
-         border: 2px solid #00adef;
-         border-radius: 25px;
-         background: white;
+       /* 본문 박스 스타일 */
+        .main-box {
+            background: white;
+            border: 2px solid #00adef;
+            border-radius: 25px; /* 큰 둥근 모서리 */
+            padding: 40px;
+            min-height: 650px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         /* 라디오 버튼 숨기기 */
