@@ -11,8 +11,8 @@
 
         /* 전체를 감싸는 컨테이너 */
         .wrapper {
-            width: 90%;
-            max-width: 1000px;
+            width: 95%;        
+            max-width: 1200px; 
         }
 
         /* 상단 독립형 탭 메뉴 */
