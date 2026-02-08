@@ -1,83 +1,79 @@
      /* 기본 배경 설정 */
         body {
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #fef9fa;
+            background-color: #fef9fa; /* 연분홍 배경색 */
             font-family: 'Pretendard', sans-serif;
+            min-height: 100vh;
         }
 
         /* 전체를 감싸는 컨테이너 */
         .wrapper {
-            width: 95%;        
-            max-width: 900px; 
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto; /* 위아래 여백 */
+            display: flex;
+            flex-direction: column;
         }
 
         /* 상단 독립형 탭 메뉴 */
         .tabs-container {
               display: flex;
-              width: 100%;       /* 상자 너비와 맞춤 */
+              width: 100%;
               margin-bottom: -2px; 
               position: relative;
-              z-index: 2;
-              padding: 0;        /* 왼쪽 여백 제거하여 상자 끝과 맞춤 */
-          }
+              z-index: 10;
+        }
 
         .tab-button {
-              flex: 1;          
-              padding: 15px 0;   
+              flex: 1;
+              padding: 15px 0;
               text-align: center;
-              background-color: #fffafa;
+              background-color: white;
               border: 2px solid #ffb6c1; 
               color: #ffb6c1;
               font-weight: bold;
               cursor: pointer;
-              transition: all 0.2s ease;
-              border-bottom: 2px solid #ff85a2;
-              border-radius: 15px 15px 0 0; 
-          }
+              border-radius: 15px 15px 0 0;
+              transition: all 0.3s ease;
+              font-size: 1rem;
+        }
 
-          /* 마우스를 올렸을 때 (Hover) */
-          .tab-button:hover {
-              background-color: #fff0f3; 
-              color: #ff85a2;          
-              border-color: #ff85a2;
-          }
-
-        /* 클릭된 상태(활성화) 스타일 */
-        input[type="radio"]:checked + .tab-button,
-        input[type="radio"]:checked + .tab-button:hover {
-              background-color: #ff85a2 !important; 
+          .tab-button:hover,
+          input[type="radio"]:checked + .tab-button {
+              background-color: #ff85a2 !important;
               border-color: #ff85a2 !important;
               color: white !important;
-              border-bottom: 2px solid #ff85a2; 
           }
        /* 본문 박스 스타일 */
-        .main-box {
-              width: 100%;
-              background: white;
-              border: 2px solid #ff85a2;
-              border-radius: 0 0 25px 25px; /* 위쪽은 탭과 맞닿으므로 아래만 둥글게 */
-              padding: 40px;
-              min-height: 500px;
-              position: relative;
-              z-index: 1;
-              box-shadow: 0 4px 15px rgba(255, 133, 162, 0.15);
-              box-sizing: border-box; /* 패딩이 너비에 영향을 주지 않도록 설정 */
+          .main-box {
+               width: 100%;
+               background: white;
+               border: 2px solid #ff85a2;
+               border-radius: 0 0 25px 25px; /* 아래만 둥글게 하여 탭과 밀착 */
+               padding: 40px;
+               min-height: 600px; /* ⭐️ 핵심: 내용이 짧아도 상자가 작아지지 않음 */
+               box-shadow: 0 10px 30px rgba(255, 133, 162, 0.1);
+               box-sizing: border-box; /* 패딩 포함 너비 계산 */
           }
 
         /* 라디오 버튼 숨기기 */
         input[type="radio"] { display: none; }
+        .content { display: none; animation: fadeIn 0.4s ease; } /* 나타날 때 부드럽게 */
+     
+         @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+         }
 
         /* 콘텐츠 전환 로직 */
-        .content { display: none; }
         #tab1:checked ~ .main-box .content-1,
         #tab2:checked ~ .main-box .content-2,
         #tab3:checked ~ .main-box .content-3,
         #tab4:checked ~ .main-box .content-4 {
-            display: block;
+              display: block;
         }
 
         /* -------------------------------------------
@@ -89,8 +85,8 @@
               display: flex;
               justify-content: space-between;
               align-items: flex-start; 
-              gap: 40px;
-              margin-bottom: 40px;
+              gap: 30px;
+              margin-bottom: 30px;
           }
           
           .profile-basic-info {
@@ -107,14 +103,13 @@
           .info-list {
               list-style: none;
               padding: 0;
-              margin: 20px 0;
+              text-align: left;
           }
           
           .info-list li {
-              font-size: 1.15rem;
               margin-bottom: 12px;
+              font-size: 1.1rem;
               color: #444;
-              line-height: 1.5;
           }
           
           /* 이미지 박스: 닉네임~장비 리스트 바로 옆에 위치 */
@@ -125,9 +120,9 @@
           .profile-main-img img {
               width: 100%;
               height: auto;
-              border-radius: 25px;
+              border-radius: 20px;
               border: none;
-              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+              box-shadow: 0 5px 15px rgba(0,0,0,0.05);
           }
           
           /* 하단 목표 영역: 가로를 꽉 채워 비어 보이지 않게 함 */
