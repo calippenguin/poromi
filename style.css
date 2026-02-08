@@ -65,17 +65,19 @@
         h2 { margin-top: 0; color: #333; }
 
           /* 프로필 탭 전체 컨테이너 */
+          /* 상단 영역: 글(왼쪽) + 사진(오른쪽) */
           .profile-container {
-              display: flex;       /* 가로 배치 */
-              gap: 60px;           /* 이미지와 텍스트 사이 간격 */
-              align-items: center; /* 위쪽 정렬 */
-              padding: 20px 0;     /* 패딩 값 추가 */
-              text-align: left;    /* 텍스트 왼쪽 정렬 */ 
+              display: flex;      
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: 30px;
+              margin-bottom: 30px;
           }
           
           /* 이미지 사이드 */
-          .profile-image-side {
-              flex: 0 0 320px;    /* 이미지가 차지할 고정 너비 */
+          .profile-text-info {
+              flex: 1; /* 글 영역이 남는 공간 차지 */
+              text-align: left;
           }
           
           .profile-img {
@@ -97,6 +99,16 @@
               border-bottom: 2px solid #eee; /* 제목 아래 선 추가 */
               padding-bottom: 10px;
           }
+
+          .profile-image-box {
+              flex: 0 0 300px; /* 사진 크기 고정 */
+          }
+          .profile-image-box img {
+              width: 100%;
+              border-radius: 20px;
+              border: 3px solid #00adef;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          }
           
           .info-list {
               list-style: none;   /* 불렛 제거 */
@@ -109,25 +121,28 @@
               margin-bottom: 15px; /* 줄 간격 */
               color: #555;
           }
-          
-          .profile-bio {
-              font-size: 1.2rem;   /* 소개글 크기 업 */
-              line-height: 2;      /* 가독성을 위해 줄 간격 확대 */
-              color: #444;
-              background: #f9f9f9; /* 배경색을 살짝 넣어 영역 구분 */
-              padding: 20px;
+
+          /* 하단 영역: 목표 박스들 */
+          .profile-bottom-section {
+              display: flex;
+              flex-direction: column; /* 세로로 나열 */
+              gap: 20px;
+          }
+         .goal-box {
+              background: #fdfdfd;
+              border: 1px solid #eee;
+              padding: 25px;
               border-radius: 15px;
+              text-align: left;
           }
           
-          /* 모바일 대응: 화면이 작아지면 위아래로 배치 */
-          @media (max-width: 600px) {
-              .profile-container {
-                  flex-direction: column;
-                  align-items: center;
-                  text-align: center;
-              }
-              .profile-image-side {
-                  flex: 0 0 auto;
-                  width: 150px;
-              }
+          .goal-box h3 {
+              margin-top: 0;
+              color: #333;
+              border-left: 5px solid #00adef;
+              padding-left: 15px;
           }
+          
+          /* 리스트 스타일 정리 */
+          .info-list { list-style: none; padding: 0; }
+          .info-list li { margin-bottom: 8px; font-size: 1.1rem; }
