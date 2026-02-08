@@ -1,0 +1,65 @@
+     /* 기본 배경 설정 */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        /* 전체를 감싸는 컨테이너 */
+        .wrapper {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        /* 상단 독립형 탭 메뉴 */
+        .tabs-container {
+            display: flex;
+            gap: 10px; /* 버튼 사이 간격 */
+            margin-bottom: 15px; /* 본문 박스와의 거리 */
+            justify-content: flex-start; /* 왼쪽 정렬 (중앙은 center) */
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid #00adef; /* 이미지의 하늘색 느낌 */
+            color: #00adef;
+            border-radius: 12px; /* 둥근 캡슐 모양 */
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        /* 클릭된 상태(활성화) 스타일 */
+        input[type="radio"]:checked + .tab-button {
+            background-color: #00adef;
+            color: white;
+        }
+
+        /* 본문 박스 스타일 */
+        .main-box {
+            background: white;
+            border: 2px solid #00adef;
+            border-radius: 25px; /* 큰 둥근 모서리 */
+            padding: 40px;
+            min-height: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* 라디오 버튼 숨기기 */
+        input[type="radio"] { display: none; }
+
+        /* 콘텐츠 전환 로직 */
+        .content { display: none; }
+        #tab1:checked ~ .main-box .content-1,
+        #tab2:checked ~ .main-box .content-2,
+        #tab3:checked ~ .main-box .content-3,
+        #tab4:checked ~ .main-box .content-4 {
+            display: block;
+        }
+
+        h2 { margin-top: 0; color: #333; }
