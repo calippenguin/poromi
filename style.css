@@ -67,22 +67,23 @@
           /* 프로필 탭 전체 컨테이너 */
           .profile-container {
               display: flex;       /* 가로 배치 */
-              gap: 40px;          /* 이미지와 텍스트 사이 간격 */
-              align-items: flex-start; /* 위쪽 정렬 */
-              text-align: left;    /* 텍스트 왼쪽 정렬 */
+              gap: 60px;           /* 이미지와 텍스트 사이 간격 */
+              align-items: center; /* 위쪽 정렬 */
+              padding: 20px 0;     /* 패딩 값 추가 */
+              text-align: left;    /* 텍스트 왼쪽 정렬 */ 
           }
           
           /* 이미지 사이드 */
           .profile-image-side {
-              flex: 0 0 200px;    /* 이미지가 차지할 고정 너비 (200px) */
+              flex: 0 0 320px;    /* 이미지가 차지할 고정 너비 */
           }
           
           .profile-img {
-              width: 100%;        /* 부모(200px)에 꽉 채우기 */
+              width: 100%;
               height: auto;
-              border-radius: 20px; /* 살짝 둥근 사각형 (완전 원형은 50%) */
-              border: 4px solid #00adef;
-              box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+              border-radius: 30px;
+              border: 5px solid #00adef; 
+              box-shadow: 0 10px 25px rgba(0,0,0,0.1);
           }
           
           /* 설명 사이드 */
@@ -91,9 +92,10 @@
           }
           
           .profile-title {
-              margin: 0 0 10px 0;
-              font-size: 1.8rem;
-              color: #333;
+              font-size: 2.5rem;   /* 제목을 아주 크게 */
+              margin-bottom: 20px;
+              border-bottom: 2px solid #eee; /* 제목 아래 선 추가 */
+              padding-bottom: 10px;
           }
           
           .info-list {
@@ -103,14 +105,18 @@
           }
           
           .info-list li {
-              margin-bottom: 10px;
-              font-size: 1.1rem;
+              font-size: 1.3rem;   /* 리스트 글자 크기 */
+              margin-bottom: 15px; /* 줄 간격 */
               color: #555;
           }
           
           .profile-bio {
-              line-height: 1.8;
-              color: #666;
+              font-size: 1.2rem;   /* 소개글 크기 업 */
+              line-height: 2;      /* 가독성을 위해 줄 간격 확대 */
+              color: #444;
+              background: #f9f9f9; /* 배경색을 살짝 넣어 영역 구분 */
+              padding: 20px;
+              border-radius: 15px;
           }
           
           /* 모바일 대응: 화면이 작아지면 위아래로 배치 */
