@@ -5,7 +5,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f5f5f5;
+            background-color: #fef9fa;
             font-family: 'Pretendard', sans-serif;
         }
 
@@ -20,15 +20,15 @@
             display: flex;
             gap: 10px; /* 버튼 사이 간격 */
             margin-bottom: 15px; /* 본문 박스와의 거리 */
-            justify-content: flex-start; /* 왼쪽 정렬 (중앙은 center) */
+            justify-content: flex-start;
         }
 
         .tab-button {
             padding: 10px 20px;
             background-color: white;
-            border: 2px solid #00adef; /* 이미지의 하늘색 느낌 */
-            color: #00adef;
-            border-radius: 12px; /* 둥근 캡슐 모양 */
+            border: 2px solid #ffb6c1; 
+            color: #ffb6c1;            
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.2s ease;
@@ -36,18 +36,18 @@
 
         /* 클릭된 상태(활성화) 스타일 */
         input[type="radio"]:checked + .tab-button {
-            background-color: #00adef;
+            background-color: #ffb6c1;
             color: white;
         }
 
        /* 본문 박스 스타일 */
         .main-box {
             background: white;
-            border: 2px solid #00adef;
-            border-radius: 25px; /* 큰 둥근 모서리 */
+            border: 2px solid #ffb6c1;
+            border-radius: 25px; 
             padding: 40px;
             min-height: 650px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
         }
 
         /* 라디오 버튼 숨기기 */
@@ -63,20 +63,20 @@
         }
 
         /* -------------------------------------------
-             5. 프로필 탭 내부 레이아웃 (핵심 수정 부분)
+             5. 프로필 탭 내부 레이아웃
           ---------------------------------------------- */
           
           /* 상단 영역: 왼쪽 정보 + 오른쪽 사진 */
           .profile-header {
               display: flex;
               justify-content: space-between;
-              align-items: flex-start; /* 위쪽 정렬 */
+              align-items: flex-start; 
               gap: 40px;
               margin-bottom: 40px;
           }
           
           .profile-basic-info {
-              flex: 1; /* 텍스트가 남는 공간 다 차지 */
+              flex: 1; 
               text-align: left;
           }
           
@@ -108,8 +108,8 @@
               width: 100%;
               height: auto;
               border-radius: 25px;
-              border: 4px solid #00adef;
-              box-shadow: 0 8px 20px rgba(0,173,239,0.15);
+              border: none;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
           }
           
           /* 하단 목표 영역: 가로를 꽉 채워 비어 보이지 않게 함 */
@@ -120,7 +120,7 @@
           }
           
           .goal-section {
-              background: #fcfcfc;
+              background: #fffafa;
               border: 1px solid #eee;
               padding: 30px;
               border-radius: 20px;
@@ -131,7 +131,7 @@
               margin-top: 0;
               font-size: 1.3rem;
               color: #333;
-              border-left: 5px solid #00adef;
+              border-left: 5px solid #ffb6c1;
               padding-left: 15px;
           }
           
