@@ -3,119 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poromi Profile</title>
+    <title>Poromi Profile Card</title>
     <style>
-        /* 배경 및 레이아웃 설정 */
+        /* 기본 배경 설정 */
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f2f5; /* 연한 회색 배경 */
+            background-color: #f5f5f5;
             font-family: 'Pretendard', sans-serif;
         }
 
-        /* 중앙 카드 컨테이너 */
-        .container {
+        /* 전체를 감싸는 컨테이너 */
+        .wrapper {
             width: 90%;
             max-width: 600px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
         }
 
-        /* 탭 버튼 스타일 */
-        .tabs {
+        /* 상단 독립형 탭 메뉴 */
+        .tabs-container {
             display: flex;
-            background: #333;
+            gap: 10px; /* 버튼 사이 간격 */
+            margin-bottom: 15px; /* 본문 박스와의 거리 */
+            justify-content: flex-start; /* 왼쪽 정렬 (중앙은 center) */
         }
 
-        .tab-link {
-            flex: 1;
-            padding: 15px 0;
-            text-align: center;
-            color: white;
+        .tab-button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid #00adef; /* 이미지의 하늘색 느낌 */
+            color: #00adef;
+            border-radius: 12px; /* 둥근 캡슐 모양 */
             cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            border: none;
-            background: none;
+            font-weight: bold;
+            transition: all 0.2s ease;
         }
 
-        .tab-link:hover {
-            background: #444;
+        /* 클릭된 상태(활성화) 스타일 */
+        input[type="radio"]:checked + .tab-button {
+            background-color: #00adef;
+            color: white;
         }
 
-        /* 라디오 버튼을 이용한 탭 로직 (숨김 처리) */
+        /* 본문 박스 스타일 */
+        .main-box {
+            background: white;
+            border: 2px solid #00adef;
+            border-radius: 25px; /* 큰 둥근 모서리 */
+            padding: 40px;
+            min-height: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* 라디오 버튼 숨기기 */
         input[type="radio"] { display: none; }
 
-        /* 선택된 탭 강조 */
-        #tab1:checked ~ .tabs label[for="tab1"],
-        #tab2:checked ~ .tabs label[for="tab2"],
-        #tab3:checked ~ .tabs label[for="tab3"],
-        #tab4:checked ~ .tabs label[for="tab4"] {
-            background: #ffffff;
-            color: #333;
-            font-weight: bold;
-        }
-
-        /* 콘텐츠 영역 */
-        .content {
-            padding: 40px;
-            min-height: 200px;
-            display: none; /* 기본적으로 숨김 */
-            text-align: center;
-        }
-
-        /* 라디오 버튼 상태에 따라 콘텐츠 보여주기 */
-        #tab1:checked ~ .content-1,
-        #tab2:checked ~ .content-2,
-        #tab3:checked ~ .content-3,
-        #tab4:checked ~ .content-4 {
+        /* 콘텐츠 전환 로직 */
+        .content { display: none; }
+        #tab1:checked ~ .main-box .content-1,
+        #tab2:checked ~ .main-box .content-2,
+        #tab3:checked ~ .main-box .content-3,
+        #tab4:checked ~ .main-box .content-4 {
             display: block;
         }
 
-        h2 { margin-top: 0; color: #222; }
-        p { color: #666; line-height: 1.6; }
+        h2 { margin-top: 0; color: #333; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <input type="radio" name="tabmenu" id="tab1" checked>
-        <input type="radio" name="tabmenu" id="tab2">
-        <input type="radio" name="tabmenu" id="tab3">
-        <input type="radio" name="tabmenu" id="tab4">
+    <div class="wrapper">
+        <input type="radio" name="menu" id="tab1" checked>
+        <input type="radio" name="menu" id="tab2">
+        <input type="radio" name="menu" id="tab3">
+        <input type="radio" name="menu" id="tab4">
 
-        <div class="tabs">
-            <label for="tab1" class="tab-link">프로필</label>
-            <label for="tab2" class="tab-link">자기소개</label>
-            <label for="tab3" class="tab-link">게임 목록</label>
-            <label for="tab4" class="tab-link">방송 이력</label>
+        <div class="tabs-container">
+            <label for="tab1" class="tab-button">프로필</label>
+            <label for="tab2" class="tab-button">자기소개</label>
+            <label for="tab3" class="tab-button">게임 목록</label>
+            <label for="tab4" class="tab-button">방송 이력</label>
         </div>
 
-        <div class="content content-1">
-            <h2>개인 프로필</h2>
-            <p><strong>닉네임:</strong> Poromi</p>
-            <p><strong>주 콘텐츠:</strong> 종합 게임</p>
-        </div>
-
-        <div class="content content-2">
-            <h2>자기소개</h2>
-            <p>안녕하세요! 다양한 게임을 즐기는 Poromi입니다.<br>매일 저녁 8시에 만나요!</p>
-        </div>
-
-        <div class="content content-3">
-            <h2>게임 목록</h2>
-            <p>리그 오브 레전드, 발로란트, 스팀 인디 게임 등</p>
-        </div>
-
-        <div class="content content-4">
-            <h2>방송 이력</h2>
-            <p>2024.01.01 첫 방송 시작<br>누적 시청자 10,000명 달성!</p>
+        <div class="main-box">
+            <div class="content content-1">
+                <h2>개인 프로필</h2>
+                <p>닉네임: Poromi</p>
+                <p>주 콘텐츠: 종합 게임</p>
+            </div>
+            <div class="content content-2">
+                <h2>자기소개</h2>
+                <p>안녕하세요! 쾌적한 방송을 지향하는 포로미입니다.</p>
+            </div>
+            <div class="content content-3">
+                <h2>게임 목록</h2>
+                <p>최근 즐겨하는 게임: 팰월드, 롤, 이터널 리턴</p>
+            </div>
+            <div class="content content-4">
+                <h2>방송 이력</h2>
+                <p>치지직 / 아프리카TV 동시 송출 중</p>
+            </div>
         </div>
     </div>
 
