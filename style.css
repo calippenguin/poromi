@@ -31,22 +31,26 @@
               flex: 1;
               padding: 15px 0;
               text-align: center;
-              background-color: white;
-              border: 2px solid #ffb6c1; 
+              background-color: #fffafa;
+              border: 2px solid #ffb6c1;
               color: #ffb6c1;
               font-weight: bold;
               cursor: pointer;
               border-radius: 15px 15px 0 0;
-              transition: all 0.3s ease;
-              font-size: 1rem;
+              transition: background 0.2s, color 0.2s;
         }
-
-          .tab-button:hover,
-          input[type="radio"]:checked + .tab-button {
-              background-color: #ff85a2 !important;
+        /* HTML 구조상 input이 위에 모여 있으므로 ~ 선택자를 사용합니다. */
+          #tab1:checked ~ .tabs-container label[for="tab1"],
+          #tab2:checked ~ .tabs-container label[for="tab2"],
+          #tab3:checked ~ .tabs-container label[for="tab3"],
+          #tab4:checked ~ .tabs-container label[for="tab4"] {
+              background-color: #ff85a2 !important; /* 진한 분홍색 고정 */
               border-color: #ff85a2 !important;
               color: white !important;
+              border-bottom: 2px solid #ff85a2; /* 하단 선을 본문 테두리와 일치시킴 */
+              z-index: 10;
           }
+
        /* 본문 박스 스타일 */
           .main-box {
                width: 100%;
@@ -60,21 +64,15 @@
           }
 
         /* 라디오 버튼 숨기기 */
-        input[type="radio"] { display: none; }
-        .content { display: none; animation: fadeIn 0.4s ease; } /* 나타날 때 부드럽게 */
-     
-         @keyframes fadeIn {
-              from { opacity: 0; transform: translateY(10px); }
-              to { opacity: 1; transform: translateY(0); }
-         }
-
-        /* 콘텐츠 전환 로직 */
-        #tab1:checked ~ .main-box .content-1,
-        #tab2:checked ~ .main-box .content-2,
-        #tab3:checked ~ .main-box .content-3,
-        #tab4:checked ~ .main-box .content-4 {
+          input[type="radio"] { display: none; }
+          .content { display: none; }
+          
+          #tab1:checked ~ .main-box .content-1,
+          #tab2:checked ~ .main-box .content-2,
+          #tab3:checked ~ .main-box .content-3,
+          #tab4:checked ~ .main-box .content-4 {
               display: block;
-        }
+          }
 
         /* -------------------------------------------
            프로필 탭 내부 레이아웃
