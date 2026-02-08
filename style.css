@@ -18,9 +18,11 @@
         /* 상단 독립형 탭 메뉴 */
         .tabs-container {
             display: flex;
-            gap: 10px; /* 버튼 사이 간격 */
-            margin-bottom: 15px; /* 본문 박스와의 거리 */
-            justify-content: flex-start;
+            gap: 5px; 
+            margin-bottom: -2px; 
+            padding-left: 20px;
+            position: relative; 
+            z-index: 1;
         }
 
         .tab-button {
@@ -28,10 +30,11 @@
             background-color: white;
             border: 2px solid #ffb6c1;
             color: #ffb6c1;            
-            border-radius: 12px 12px 0 0;
+            border-radius: 15px 15px 0 0;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
+            border-bottom: none;
         }
 
           /* 마우스를 올렸을 때 (Hover) */
