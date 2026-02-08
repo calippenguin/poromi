@@ -63,3 +63,65 @@
         }
 
         h2 { margin-top: 0; color: #333; }
+
+          /* 프로필 탭 전체 컨테이너 */
+          .profile-container {
+              display: flex;       /* 가로 배치 */
+              gap: 40px;          /* 이미지와 텍스트 사이 간격 */
+              align-items: flex-start; /* 위쪽 정렬 */
+              text-align: left;    /* 텍스트 왼쪽 정렬 */
+          }
+          
+          /* 이미지 사이드 */
+          .profile-image-side {
+              flex: 0 0 200px;    /* 이미지가 차지할 고정 너비 (200px) */
+          }
+          
+          .profile-img {
+              width: 100%;        /* 부모(200px)에 꽉 채우기 */
+              height: auto;
+              border-radius: 20px; /* 살짝 둥근 사각형 (완전 원형은 50%) */
+              border: 4px solid #00adef;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          }
+          
+          /* 설명 사이드 */
+          .profile-info-side {
+              flex: 1;            /* 남은 공간을 모두 차지 */
+          }
+          
+          .profile-title {
+              margin: 0 0 10px 0;
+              font-size: 1.8rem;
+              color: #333;
+          }
+          
+          .info-list {
+              list-style: none;   /* 불렛 제거 */
+              padding: 0;
+              margin: 20px 0;
+          }
+          
+          .info-list li {
+              margin-bottom: 10px;
+              font-size: 1.1rem;
+              color: #555;
+          }
+          
+          .profile-bio {
+              line-height: 1.8;
+              color: #666;
+          }
+          
+          /* 모바일 대응: 화면이 작아지면 위아래로 배치 */
+          @media (max-width: 600px) {
+              .profile-container {
+                  flex-direction: column;
+                  align-items: center;
+                  text-align: center;
+              }
+              .profile-image-side {
+                  flex: 0 0 auto;
+                  width: 150px;
+              }
+          }
