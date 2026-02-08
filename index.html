@@ -1,64 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Streamer Poromi</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poromi Profile</title>
+    <style>
+        /* 배경 및 레이아웃 설정 */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5; /* 연한 회색 배경 */
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        /* 중앙 카드 컨테이너 */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 탭 버튼 스타일 */
+        .tabs {
+            display: flex;
+            background: #333;
+        }
+
+        .tab-link {
+            flex: 1;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            border: none;
+            background: none;
+        }
+
+        .tab-link:hover {
+            background: #444;
+        }
+
+        /* 라디오 버튼을 이용한 탭 로직 (숨김 처리) */
+        input[type="radio"] { display: none; }
+
+        /* 선택된 탭 강조 */
+        #tab1:checked ~ .tabs label[for="tab1"],
+        #tab2:checked ~ .tabs label[for="tab2"],
+        #tab3:checked ~ .tabs label[for="tab3"],
+        #tab4:checked ~ .tabs label[for="tab4"] {
+            background: #ffffff;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* 콘텐츠 영역 */
+        .content {
+            padding: 40px;
+            min-height: 200px;
+            display: none; /* 기본적으로 숨김 */
+            text-align: center;
+        }
+
+        /* 라디오 버튼 상태에 따라 콘텐츠 보여주기 */
+        #tab1:checked ~ .content-1,
+        #tab2:checked ~ .content-2,
+        #tab3:checked ~ .content-3,
+        #tab4:checked ~ .content-4 {
+            display: block;
+        }
+
+        h2 { margin-top: 0; color: #222; }
+        p { color: #666; line-height: 1.6; }
+    </style>
 </head>
 <body>
 
-<nav>
-  <button onclick="openTab('profile')">프로필</button>
-  <button onclick="openTab('about')">자기소개</button>
-  <button onclick="openTab('games')">게임 목록</button>
-  <button onclick="openTab('history')">방송 이력</button>
-</nav>
+    <div class="container">
+        <input type="radio" name="tabmenu" id="tab1" checked>
+        <input type="radio" name="tabmenu" id="tab2">
+        <input type="radio" name="tabmenu" id="tab3">
+        <input type="radio" name="tabmenu" id="tab4">
 
-<div class="container">
+        <div class="tabs">
+            <label for="tab1" class="tab-link">프로필</label>
+            <label for="tab2" class="tab-link">자기소개</label>
+            <label for="tab3" class="tab-link">게임 목록</label>
+            <label for="tab4" class="tab-link">방송 이력</label>
+        </div>
 
-  <div id="profile" class="tab">
-    <h1>개인 프로필</h1>
-    <p>닉네임: Poromi</p>
-    <p>주 콘텐츠: 종합 게임</p>
-  </div>
+        <div class="content content-1">
+            <h2>개인 프로필</h2>
+            <p><strong>닉네임:</strong> Poromi</p>
+            <p><strong>주 콘텐츠:</strong> 종합 게임</p>
+        </div>
 
-  <div id="about" class="tab">
-    <h1>자기소개</h1>
-    <p>
-      편안한 분위기의 종합 게임 스트리머입니다.
-    </p>
-  </div>
+        <div class="content content-2">
+            <h2>자기소개</h2>
+            <p>안녕하세요! 다양한 게임을 즐기는 Poromi입니다.<br>매일 저녁 8시에 만나요!</p>
+        </div>
 
-  <div id="games" class="tab">
-    <h1>진행한 게임</h1>
-    <ul>
-      <li>엘든 링</li>
-      <li>디트로이트</li>
-      <li>언더테일</li>
-    </ul>
-  </div>
+        <div class="content content-3">
+            <h2>게임 목록</h2>
+            <p>리그 오브 레전드, 발로란트, 스팀 인디 게임 등</p>
+        </div>
 
-  <div id="history" class="tab">
-    <h1>방송 이력</h1>
-    <ul>
-      <li>2026-02-01 엘든 링 시작</li>
-      <li>2026-02-03 보스 클리어</li>
-    </ul>
-  </div>
-
-</div>
-
-<script>
-function openTab(tabId) {
-  const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => tab.style.display = 'none');
-
-  document.getElementById(tabId).style.display = 'block';
-}
-
-// 처음 로딩 시 프로필 탭 열기
-openTab('profile');
-</script>
+        <div class="content content-4">
+            <h2>방송 이력</h2>
+            <p>2024.01.01 첫 방송 시작<br>누적 시청자 10,000명 달성!</p>
+        </div>
+    </div>
 
 </body>
 </html>
