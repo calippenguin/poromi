@@ -101,7 +101,7 @@
           
           /* 이미지 박스: 닉네임~장비 리스트 바로 옆에 위치 */
           .profile-main-img {
-              flex: 0 0 380px; /* 이미지 너비를 큼직하게 고정 */
+              flex: 0 0 360px; /* 이미지 너비를 큼직하게 고정 */
           }
           
           .profile-main-img img {
