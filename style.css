@@ -26,28 +26,38 @@
         .tab-button {
             padding: 10px 20px;
             background-color: white;
-            border: 2px solid #ffb6c1; 
+            border: 2px solid #ffb6c1;
             color: #ffb6c1;            
-            border-radius: 12px;
+            border-radius: 12px 12px 0 0;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
+
+          /* 마우스를 올렸을 때 (Hover) */
+          .tab-button:hover {
+              background-color: #fff0f3; 
+              color: #ff85a2;          
+              border-color: #ff85a2;
+          }
 
         /* 클릭된 상태(활성화) 스타일 */
         input[type="radio"]:checked + .tab-button {
-            background-color: #ffb6c1;
-            color: white;
+            background-color: #ff85a2;
+            border-color: #ff85a2;     
+            color: white;              
+            padding-top: 12px;        
+            box-shadow: 0 -3px 10px rgba(255, 133, 162, 0.3); 
         }
 
        /* 본문 박스 스타일 */
         .main-box {
             background: white;
-            border: 2px solid #ffb6c1;
-            border-radius: 25px; 
+            border: 2px solid #ff85a2;
+            border-radius: 0 25px 25px 25px;
             padding: 40px;
-            min-height: 650px;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+            min-height: 500px;
+            box-shadow: 0 4px 15px rgba(255, 133, 162, 0.15);
         }
 
         /* 라디오 버튼 숨기기 */
