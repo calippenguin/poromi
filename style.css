@@ -38,12 +38,13 @@
               cursor: pointer;
               border-radius: 15px 15px 0 0;
               transition: background 0.2s, color 0.2s;
-        }
-        /* HTML 구조상 input이 위에 모여 있으므로 ~ 선택자를 사용합니다. */
-          #tab1:checked ~ .tabs-container label[for="tab1"],
-          #tab2:checked ~ .tabs-container label[for="tab2"],
-          #tab3:checked ~ .tabs-container label[for="tab3"],
-          #tab4:checked ~ .tabs-container label[for="tab4"] {
+              
+              /* ⭐️ 버튼 기본 스타일 제거 및 폰트 설정 추가 */
+              font-family: 'Pretendard', sans-serif;
+              outline: none;
+              -webkit-appearance: none;
+          }
+        .tab-button.active {
               background-color: #ff85a2 !important; /* 진한 분홍색 고정 */
               border-color: #ff85a2 !important;
               color: white !important;
@@ -64,14 +65,8 @@
           }
 
         /* 라디오 버튼 숨기기 */
-          input[type="radio"] { display: none; }
-          .content { display: none; }
-          
-          #tab1:checked ~ .main-box .content-1,
-          #tab2:checked ~ .main-box .content-2,
-          #tab3:checked ~ .main-box .content-3,
-          #tab4:checked ~ .main-box .content-4 {
-              display: block;
+          .content {
+              display: block; /* 이제 가져온 내용은 무조건 보이게 합니다 */
           }
 
         /* -------------------------------------------
