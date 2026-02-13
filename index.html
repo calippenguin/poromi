@@ -4,292 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>포로미의 공간</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<link rel="stylesheet" href="style.css">
 <body>
 
     <div class="wrapper">
-        <input type="radio" name="menu" id="tab1" checked>
-        <input type="radio" name="menu" id="tab2">
-        <input type="radio" name="menu" id="tab3">
-        <input type="radio" name="menu" id="tab4">
-
         <div class="tabs-container">
-            <label for="tab1" class="tab-button">프로필</label>
-            <label for="tab2" class="tab-button">채팅규칙</label>
-            <label for="tab3" class="tab-button">활동이력</label>
-            <label for="tab4" class="tab-button">게임목록</label>
+            <button class="tab-button active" onclick="loadTab('profile', this)">프로필</button>
+            <button class="tab-button" onclick="loadTab('rules', this)">채팅규칙</button>
+            <button class="tab-button" onclick="loadTab('history', this)">활동이력</button>
+            <button class="tab-button" onclick="loadTab('games', this)">게임목록</button>
         </div>
 
-        <div class="main-box">
-           <div class="content content-1"> <!-- 프로필 -->
-                <div class="profile-header">
-                    <div class="profile-basic-info">
-                        <h2 class="profile-title">프로필 소개</h2>
-                        <hr>
-                        <ul class="info-list">
-                            <li><strong>닉네임 :</strong> 포로미</li>
-                            <li><strong>생일 :</strong> 2000년 8월 13일</li>
-                            <li><strong>MBTI :</strong> INFP이지만 ENFP</li>
-                            <li><strong>팬닉 :</strong> ^p^</li>
-                            <li><strong>데뷔 :</strong> 2025년 3월 18일</li>
-                            <li><strong>주 콘텐츠 :</strong> 소통방송</li>
-                            <li><strong>게임 컨텐츠 :</strong> 롤, 배그, 종합게임</li>
-                            <li><strong>특징 :</strong> 밝으면서도 댕청한 이미지가 가득한 분홍 토끼</li>
-                            <li><strong>방송 플랫폼 :</strong> <a href="https://www.sooplive.co.kr/station/sim222" target="_blank">SOOP</a></li>
-                        </ul>
-                    </div>
-                    <div class="profile-main-img">
-                        <img src="./images/profile.png" alt="포로미 이미지">
-                    </div>
-                </div>
-            
-                <div class="profile-details">
-                    <div class="goal-section">
-                        <h3>2025년 목표 💗</h3>
-                        <ul>
-                            <li>루키존 달성</li>
-                            <li>애청자 1000명 달성</li>
-                            <li>베스트 스트리머</li>
-                            <li>포사랑단 만들기</li>
-                        </ul>
-                    </div>
-                    <div class="goal-section">
-                        <h3>2026년 목표 💗</h3>
-                        <ul>
-                            <li>애청자 3000명 달성</li>
-                            <li>풀트 장만하기</li>
-                            <li>버추얼 오리지널 내기</li>
-                            <li>평청 30명!!!!</li>
-                        </ul>
-                    </div>
-                </div>
+        <div id="main-content" class="main-box">
             </div>
-            <div class="content content-2"> <!-- 채팅규칙 -->
-                <div class="rules-header">
-                    <h2>채팅 규칙 📢</h2>
-                    <div class="warning-step">
-                        경고 → 채금 → 강퇴 → 블랙
-                        <span>(실시간 방송 이외에도 후속 조치될 수 있습니다)</span>
-                    </div>
-                </div>
-            
-                <div class="rules-grid">
-                    <div class="rule-item">
-                        <span class="rule-num">1</span>
-                        <div class="rule-text">
-                            <strong>타 스트리머 언급 금지</strong>
-                            <p>친하게 지내는 스트리머도 타 스트리머입니다! (합방 제외)</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">2</span>
-                        <div class="rule-text">
-                            <strong>TMI 및 자아표출 금지</strong>
-                            <p>개인적인 일 언급 사양합니다. 한 사람만 공감하는 주제는 NO!</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">3</span>
-                        <div class="rule-text">
-                            <strong>과도한 억까/억빠 금지</strong>
-                            <p>알잘딱이 가장 어렵지만, 선을 넘으면 제재가 될 수 있습니다.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">4</span>
-                        <div class="rule-text">
-                            <strong>시청자 간 친목 금지</strong>
-                            <p>닉네임 언급 및 대답 금지 (간접 포함). 구독권 감사 인사는 가능!</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">5</span>
-                        <div class="rule-text">
-                            <strong>리모콘질, 쥐흔 금지</strong>
-                            <p>이거해라 저거해라 금지. 상처가 될 때가 있습니다.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">6</span>
-                        <div class="rule-text">
-                            <strong>반말 및 예의 없는 호칭 금지</strong>
-                            <p>야, 너, 니 금지! '로미야' 또는 '로미님'으로 불러주세요.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">7</span>
-                        <div class="rule-text">
-                            <strong>방종 전 퇴장 인사 금지</strong>
-                            <p>조용히 나가셔도 괜찮아요. 편하실 때 다시 와주세요!</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">8</span>
-                        <div class="rule-text">
-                            <strong>우리끼리 아는 얘기 금지</strong>
-                            <p>과거 내용 언급은 유입 시청자분들에게 큰 장벽이 됩니다.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">9</span>
-                        <div class="rule-text">
-                            <strong>본방 단어 금지</strong>
-                            <p>스코프는 wwe로만! 본방이 어떻다 저떻다 금지금지.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">10</span>
-                        <div class="rule-text">
-                            <strong>풍 어그로 및 풍갑질 금지</strong>
-                            <p>후원을 빌미로 한 갑질이나 부정적인 풍막 발언은 사양합니다.</p>
-                        </div>
-                    </div>
-            
-                    <div class="rule-item">
-                        <span class="rule-num">11</span>
-                        <div class="rule-text">
-                            <strong>서운함 표출 금지</strong>
-                            <p>여기는 1:1 방송이 아닙니다. 방송에서 서운함을 표현하지 마세요.</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="rules-footer">
-                    <p>종교, 커뮤언급, 도배, 욕, 어그로, ㅅ드립, 시청자 엮기 <strong>절대 금지</strong></p>
-                    <p class="highlight-note">로미의 텐션을 유지할 수 있도록 꼭 지켜주세요! 저는 장난도 재미없어용 🙅‍♀️</p>
-                </div>
-            </div>
-            <div class="content content-3">
-                <div class="history-header">
-                    <h2>활동 이력 ✨</h2>
-                    <p>포로미와 포사랑단이 함께 걸어온 발자취입니다.</p>
-                </div>
-            
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025.03</div>
-                        <div class="timeline-content">
-                            <p><strong>03.18</strong> 첫 방송 시작 🚀</p>
-                            <p><strong>03.22</strong> 첫 공겜 (WELCOME TO KOWLOON)</p>
-                            <p><strong>03.28 ~ 30</strong> 방송 10일차의 패기, 해외 여행!</p>
-                        </div>
-                    </div>
-            
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025.04</div>
-                        <div class="timeline-content">
-                            <p><strong>04.04</strong> 첫 배그 합방</p>
-                            <p><strong>04.05</strong> 두 번째 공겜 (저주받은 디카)</p>
-                            <p><strong>04.15</strong> 포로미 노래자랑 🎤</p>
-                            <p><strong>04.19</strong> 통 미꾸라지 먹방 (잊지 못할 맛..)</p>
-                            <p><strong>04.20</strong> 노래교실 면접</p>
-                            <p><strong>04.23</strong> 세 번째 공겜 (Tungtung's Nightmare)</p>
-                            <p><strong>04.25</strong> 첫 그림 핀볼</p>
-                            <p><strong>04.26 ~ 30</strong> 야너다(마크) - 너거돌 결성!</p>
-                        </div>
-                    </div>
-            
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025.05</div>
-                        <div class="timeline-content">
-                            <p><strong>05.03</strong> 첫 배그 빙고</p>
-                            <p><strong>05.04</strong> 네 번째 공겜 (더 메이드)</p>
-                            <p><strong>05.06</strong> 마크 운동회 + R.E.P.O 합방</p>
-                            <p><strong>05.09</strong> 타로 (W.흑담비)</p>
-                            <p><strong>05.10</strong> 첫 번째 그림 룰렛</p>
-                            <p><strong>05.12</strong> 버인협회 면접</p>
-                            <p><strong>05.18</strong> 첫 저티어 CK</p>
-                            <p><strong>05.23</strong> 🎉 루키존 달성!</p>
-                            <p><strong>05.24 ~ 31</strong> 가림시티(마크)</p>
-                        </div>
-                    </div>
-            
-                    <div class="timeline-item highlight">
-                        <div class="timeline-date">2025.12</div>
-                        <div class="timeline-content">
-                            <p><strong>12.25</strong> 첫 그림 역조공 🎁</p>
-                            <p><strong>12.31</strong> 🏆 베스트 스트리머(베스) 달성!</p>
-                        </div>
-                    </div>
-            
-                    <div class="timeline-item">
-                        <div class="timeline-date">2026.01</div>
-                        <div class="timeline-content">
-                            <p><strong>01.01 ~ 07</strong> 새해 맞이 노방종</p>
-                            <p><strong>01.10</strong> 300일 기념 주르마블</p>
-                            <p><strong>01.27</strong> 배그 합방 (W.너거돌)</p>
-                            <p><strong>02.07</strong> 찐 로미 대전 승리 ✌️</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content content-4">
-                <div class="game-header">
-                    <h2>게임 이력 🎮</h2>
-                    <p>포로미가 지금까지 플레이한 게임들의 기록입니다.</p>
-                </div>
-            
-                <div class="game-grid">
-                    <div class="game-card playing">
-                        <span class="status-tag tag-playing">플레이 중</span> <div class="game-info">
-                            <h3>리그 오브 레전드</h3>
-                            <p>언제나 환영인 협곡 라이프!</p>
-                        </div>
-                    </div>
-            
-                    <div class="game-card completed">
-                        <span class="status-tag tag-completed">완료</span>
-                        <div class="game-info">
-                            <h3>더 메이드</h3>
-                            <p>공포를 이겨내고 클리어 완료!</p>
-                        </div>
-                    </div>
-            
-                    <div class="game-card completed">
-                        <span class="status-tag tag-completed">완료</span>
-                        <div class="game-info">
-                            <h3>미메시스</h3>
-                            <p>성공적으로 엔딩 도달!</p>
-                        </div>
-                    </div>
-            
-                    <div class="game-card stopped">
-                        <span class="status-tag tag-stopped">중단</span>
-                        <div class="game-info">
-                            <h3>데이브 더 다이브</h3>
-                            <p>바다 속 탐험 잠시 휴식 중</p>
-                        </div>
-                    </div>
-            
-                    <div class="game-card stopped">
-                        <span class="status-tag tag-stopped">중단</span>
-                        <div class="game-info">
-                            <h3>덕르코프</h3>
-                            <p>파밍의 재미, 잠시 중단</p>
-                        </div>
-                    </div>
-            
-                    <div class="game-card stopped">
-                        <span class="status-tag tag-stopped">중단</span>
-                        <div class="game-info">
-                            <h3>R V There Yet</h3>
-                            <p>다음 여정을 기약하며</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
+    <script>
+        // 탭을 불러오는 함수
+        function loadTab(tabName, element) {
+            // 1. 모든 버튼에서 active 클래스 제거
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // 2. 클릭한 버튼에 active 클래스 추가 (색상 고정)
+            element.classList.add('active');
+
+            // 3. tabs 폴더 내의 해당 html 파일을 가져와서 표시
+            fetch(`./tabs/${tabName}.html`)
+                .then(response => {
+                    if (!response.ok) throw new Error('네트워크 응답 없음');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('탭 로딩 에러:', error);
+                    document.getElementById('main-content').innerHTML = "<p>내용을 불러오지 못했습니다.</p>";
+                });
+        }
+
+        // 페이지 처음 로딩 시 '프로필' 탭 자동 실행
+        window.onload = () => {
+            loadTab('profile', document.querySelector('.tab-button'));
+        };
+    </script>
 </body>
 </html>
