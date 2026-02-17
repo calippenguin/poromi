@@ -243,14 +243,48 @@
           
           /* 하단 강조 문구 */
           .rules-footer {
-              padding: 25px;
+              padding: 30px;
               background: #fff0f3;
-              border: 2px solid #ffb6c1; 
+              border: 2px dashed #ffb6c1;
               border-radius: 20px;
               text-align: center;
-              margin-top: 20px;
+              margin-top: 30px;
               width: 100%;
               box-sizing: border-box;
+          }
+
+          .footer-appeal {
+              font-size: 1.05rem;
+              color: #444;
+              line-height: 1.8;
+              margin-bottom: 20px;
+          }
+
+          .footer-appeal strong {
+              color: #e91e63;
+              font-weight: bold;
+              text-decoration: underline;
+          }
+
+          .footer-ban {
+              display: inline-block;
+              padding: 12px 25px;
+              background: white;
+              border-radius: 50px;
+              color: #333;
+              font-weight: bold;
+              font-size: 1rem;
+              box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
+          }
+          
+          .footer-ban strong {
+              color: #ff4d6d;
+          }
+
+          .footer-note {
+              font-size: 0.85rem;
+              color: #888;
+              margin-top: 15px !important;
           }
 
           .rules-footer p {
