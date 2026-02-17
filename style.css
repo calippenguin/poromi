@@ -165,13 +165,18 @@
           
           .warning-step {
               display: inline-block;
-              padding: 15px 30px;
+              padding: 12px 30px;
               background-color: #fff0f3;
               border: 2px dashed #ffb6c1;
               border-radius: 50px;
               color: #e91e63;
               font-weight: bold;
               font-size: 1.1rem;
+          }
+          .warning-caption {
+              margin-top: 10px;
+              font-size: 0.9rem;
+              color: #999;
           }
           
           .warning-step span {
