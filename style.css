@@ -160,7 +160,17 @@
           /* 채팅 규칙 전용 스타일 */
           .rules-header {
               text-align: center;
-              margin-bottom: 30px;
+              margin-bottom: 40px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+          }
+
+          .rules-header h2 {
+              font-size: 1.8rem;
+              color: #333;
+              margin-bottom: 5px;
           }
           
           .warning-step {
@@ -174,9 +184,10 @@
               font-size: 1.1rem;
           }
           .warning-caption {
-              margin-top: 10px;
+              margin: 0;
               font-size: 0.9rem;
-              color: #999;
+              color: #888;
+              font-weight: normal;
           }
           
           .warning-step span {
@@ -187,7 +198,6 @@
               margin-top: 5px;
           }
           
-          /* 규칙 리스트 그리드 (2열 배치) */
           .rules-grid {
               display: grid;
               grid-template-columns: 1fr 1fr;
@@ -246,7 +256,6 @@
               line-height: 1.4;
           }
           
-          /* 하단 강조 문구 */
           .rules-footer {
               padding: 30px;
               background: #fff0f3;
