@@ -359,6 +359,12 @@
               width: 180px !important; /* 가로 크기 고정 */
               text-align: center !important;
               box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+              transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+          }
+
+          .item-card:hover {
+              transform: translateY(-5px) !important;
+              box-shadow: 0 8px 15px rgba(255, 133, 162, 0.2) !important;
           }
           
           .item-card h4 { margin: 10px 0 5px; font-size: 16px; color: #333; }
@@ -375,10 +381,11 @@
           }
           
           /* 배지 상태별 색상 */
-          .b-steady { background: #e3f2fd !important; color: #1976d2 !important; }
-          .b-clear  { background: #e8f5e9 !important; color: #2e7d32 !important; }
-          .b-stop   { background: #f5f5f5 !important; color: #757575 !important; }
-          .b-giveup { background: #fffde7 !important; color: #f9a825 !important; }
+          .b-steady { background: #e3f2fd !important; color: #1976d2 !important; } /* 파랑 */
+          .b-clear  { background: #e8f5e9 !important; color: #2e7d32 !important; } /* 초록 */
+          .b-stop   { background: #f5f5f5 !important; color: #757575 !important; } /* 회색 */
+          .b-giveup { background: #fffde7 !important; color: #f9a825 !important; } /* 노랑 */
+          .b-friend { background: #fce4ec !important; color: #d81b60 !important; } /* 분홍(합방) */
 
           /* -------------------------------------------
               활동이력 탭 내부 레이아웃
