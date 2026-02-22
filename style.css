@@ -456,7 +456,6 @@
                
           .games-grid {
               display: grid;
-              /* 화면 너비에 따라 카드를 자동으로 꽉 채움 (최소 180px) */
               grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
               gap: 20px;
               margin-bottom: 20px;
