@@ -60,26 +60,36 @@
             loadTab('profile', document.querySelector('.tab-button'));
         };
 
-        function openModal(title, description, videoUrl) {
-        const modal = document.getElementById('etcModal');
-        const vBox = document.getElementById('modalVideoBox');
-        const vPlayer = document.getElementById('sigVideo');
-    
-        document.getElementById('modalTitle').innerText = title;
-        document.getElementById('modalDescription').innerText = description;
-    
-        // 영상 경로가 있으면 보여주고, 없으면 숨김
-        if (videoUrl) {
-            vBox.style.display = 'block';
-            vPlayer.src = videoUrl;
-        } else {
-            vBox.style.display = 'none';
-            vPlayer.src = '';
+        function openModal(title, description, videoUrl, imageUrl) {
+            const modal = document.getElementById('etcModal');
+            const vBox = document.getElementById('modalVideoBox');
+            const vPlayer = document.getElementById('sigVideo');
+            const iBox = document.getElementById('modalImageBox');
+            const iDisplay = document.getElementById('sigImage');
+        
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+        
+            // 1. 영상 처리
+            if (videoUrl) {
+                vBox.style.display = 'block';
+                vPlayer.src = videoUrl;
+            } else {
+                vBox.style.display = 'none';
+                vPlayer.src = '';
+            }
+        
+            // 2. 이미지 처리 (영상 아래에 추가 이미지를 넣고 싶을 때 사용)
+            if (imageUrl) {
+                iBox.style.display = 'block';
+                iDisplay.src = imageUrl;
+            } else {
+                iBox.style.display = 'none';
+            }
+        
+            modal.style.display = 'block';
         }
-    
-        modal.style.display = 'block';
-    }
-    
+        
     function closeModal() {
         const modal = document.getElementById('etcModal');
         const vPlayer = document.getElementById('sigVideo');
