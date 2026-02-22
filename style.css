@@ -500,7 +500,7 @@
               margin-bottom: 12px !important;
           }
           
-          /* 배지 색상 바리에이션 */
+        
           .content .ongoing { background-color: #e3f2fd !important; color: #1976d2 !important; } /* 파랑 */
           .content .clear   { background-color: #e8f5e9 !important; color: #2e7d32 !important; } /* 초록 */
           .content .stop    { background-color: #f5f5f5 !important; color: #757575 !important; } /* 회색 */
