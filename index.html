@@ -59,6 +59,40 @@
         window.onload = () => {
             loadTab('profile', document.querySelector('.tab-button'));
         };
+
+        function openModal(title, description, videoUrl) {
+        const modal = document.getElementById('etcModal');
+        const vBox = document.getElementById('modalVideoBox');
+        const vPlayer = document.getElementById('sigVideo');
+    
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+    
+        // 영상 경로가 있으면 보여주고, 없으면 숨김
+        if (videoUrl) {
+            vBox.style.display = 'block';
+            vPlayer.src = videoUrl;
+        } else {
+            vBox.style.display = 'none';
+            vPlayer.src = '';
+        }
+    
+        modal.style.display = 'block';
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById('etcModal');
+        const vPlayer = document.getElementById('sigVideo');
+        
+        modal.style.display = 'none';
+        vPlayer.pause(); // 닫을 때 영상 정지
+    }
+    
+    // 팝업 바깥쪽 클릭 시 닫기
+    window.onclick = function(event) {
+        const modal = document.getElementById('etcModal');
+        if (event.target == modal) closeModal();
+    }
     </script>
 </body>
 </html>
