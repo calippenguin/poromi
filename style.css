@@ -431,92 +431,85 @@
           /* -------------------------------------------
               게임이력 탭 내부 레이아웃
           ---------------------------------------------- */
-
-          
-          .content.games-header {
+      
+          .games-header {
               text-align: center;
               margin-bottom: 40px;
+              width: 100%;
           }
           
-          .content.games-header h2 {
+          .games-header h2 {
               font-size: 2rem;
               color: #333;
               margin-bottom: 10px;
           }
           
-          .content.category-title {
+         
+          .category-title {
               margin: 40px 0 20px;
               padding-left: 15px;
               border-left: 5px solid #ff85a2;
               font-size: 1.4rem;
               color: #444;
-              display: flex;
-              align-items: center;
+              font-weight: bold;
+              clear: both; /* 레이아웃 꼬임 방지 */
           }
-
-               
-          .content .games-grid {
+          
+          
+          .games-grid {
               display: grid !important;
               grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
               gap: 15px !important;
-              margin-top: 20px !important;
+              margin-bottom: 30px;
+              width: 100%;
           }
           
-          .content .game-card {
+          
+          .game-card {
               background-color: #ffffff !important;
               border: 1px solid #ffe4e1 !important;
               border-radius: 15px !important;
               padding: 20px !important;
               text-align: center !important;
               box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+              transition: transform 0.2s ease-in-out !important;
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center !important;
           }
           
-          .content .game-card:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 10px 20px rgba(255, 133, 162, 0.2);
-              border-color: #ffb6c1;
+          .game-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 8px 15px rgba(255, 182, 193, 0.3) !important;
           }
           
-          .content .game-card h4 {
-              margin: 12px 0 6px;
+          
+          .game-card h4 {
+              margin: 10px 0 5px !important;
               font-size: 1.05rem;
               color: #333;
-              line-height: 1.4;
               word-break: keep-all;
           }
           
-          .content .game-card p {
+          .game-card p {
               font-size: 0.85rem;
               color: #888;
               margin: 0;
           }
           
-          .content .status-badge {
+          .status-badge {
               display: inline-block !important;
               padding: 4px 12px !important;
               border-radius: 50px !important;
-              font-size: 12px !important;
+              font-size: 11px !important;
               font-weight: bold !important;
-              margin-bottom: 10px !important;
+              margin-bottom: 10px;
           }
           
-          .content .ongoing { background-color: #e3f2fd !important; color: #1976d2 !important; }
-          .content .clear { background-color: #e8f5e9 !important; color: #2e7d32 !important; }
-          .content .stop { background-color: #f5f5f5 !important; color: #757575 !important; }
-          .content .giveup { background-color: #fffde7 !important; color: #f9a825 !important; }
-          .content .friend { background-color: #fce4ec !important; color: #d81b60 !important; }
-          
-          .content .horror {
-              border: 1px solid #ffccd5;
-          }
-          
-          .content .horror .status-badge {
-              background-color: #ffeeff;
-              color: #9c27b0; /* 성불 느낌의 보라색 */
-          }
-          
-          .content .main-games .game-card {
-              background: linear-gradient(to bottom, #ffffff, #fff9fa);
-              border-width: 2px;
-          }
+          /* 배지 색상들 */
+          .ongoing { background-color: #e3f2fd !important; color: #1976d2 !important; } /* 진행중 */
+          .clear { background-color: #e8f5e9 !important; color: #2e7d32 !important; }   /* 완료/성불 */
+          .stop { background-color: #f5f5f5 !important; color: #757575 !important; }    /* 중단 */
+          .giveup { background-color: #fffde7 !important; color: #f9a825 !important; }  /* 포기 */
+          .friend { background-color: #fce4ec !important; color: #d81b60 !important; }  /* 합
 
