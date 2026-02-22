@@ -432,82 +432,57 @@
               게임이력 탭 내부 레이아웃
           ---------------------------------------------- */
       
-          /* 1. 카테고리 제목 (주력, 종겜 등) */
-          .content .category-title {
-              margin: 40px 0 20px;
-              padding-left: 15px;
-              border-left: 5px solid #ff85a2;
-              font-size: 1.4rem;
+         
+          .gm-header { text-align: center; margin-bottom: 40px; }
+          .gm-header h2 { font-size: 24px; color: #333; margin-bottom: 10px; }
+          
+          .gm-title {
+              margin: 30px 0 15px;
+              padding-left: 12px;
+              border-left: 4px solid #ff85a2;
+              font-size: 1.2rem;
               color: #444;
               font-weight: bold;
-              display: block;
-              clear: both;
+              text-align: left;
           }
           
-          /* 2. 게임 카드 그리드 배치 (핵심!) */
-          .content .games-grid {
+          /* 그리드 레이아웃 강제 설정 */
+          .gm-grid {
               display: grid !important;
-              /* 카드를 가로로 나열 (최소 180px 너비로 자동 채움) */
-              grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-              gap: 20px !important;
-              margin-bottom: 40px !important;
+              grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+              gap: 15px !important;
+              margin-bottom: 30px !important;
           }
           
-          /* 3. 개별 게임 카드 디자인 */
-          .content .game-card {
+          /* 카드 디자인 */
+          .gm-card {
               background: #ffffff !important;
               border: 1px solid #ffe4e1 !important;
-              border-radius: 15px !important;
-              padding: 25px 15px !important;
+              border-radius: 12px !important;
+              padding: 20px 10px !important;
               text-align: center !important;
-              box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
-              transition: all 0.3s ease !important;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.03) !important;
               display: flex !important;
               flex-direction: column !important;
               align-items: center !important;
-              justify-content: center !important;
           }
           
-          /* 카드 호버 효과 */
-          .content .game-card:hover {
-              transform: translateY(-5px) !important;
-              box-shadow: 0 10px 20px rgba(255, 182, 193, 0.2) !important;
-              border-color: #ffb6c1 !important;
-          }
+          .gm-card h4 { margin: 10px 0 5px !important; font-size: 16px !important; color: #333; }
+          .gm-card p { font-size: 13px !important; color: #999; margin: 0; }
           
-          /* 카드 내 제목 */
-          .content .game-card h4 {
-              margin: 10px 0 5px !important;
-              font-size: 1.1rem !important;
-              color: #333 !important;
-              font-weight: 600 !important;
-          }
-          
-          /* 카드 내 보조 텍스트 */
-          .content .game-card p {
-              font-size: 0.85rem !important;
-              color: #999 !important;
-              margin: 0 !important;
-          }
-          
-          /* 4. 상태 배지 (알약 모양) */
-          .content .status-badge {
+          /* 배지 디자인 */
+          .gm-badge {
               display: inline-block !important;
-              padding: 4px 12px !important;
-              border-radius: 50px !important;
+              padding: 3px 10px !important;
+              border-radius: 20px !important;
               font-size: 11px !important;
               font-weight: bold !important;
-              margin-bottom: 12px !important;
+              margin-bottom: 8px !important;
           }
           
-        
-          .content .ongoing { background-color: #e3f2fd !important; color: #1976d2 !important; } /* 파랑 */
-          .content .clear   { background-color: #e8f5e9 !important; color: #2e7d32 !important; } /* 초록 */
-          .content .stop    { background-color: #f5f5f5 !important; color: #757575 !important; } /* 회색 */
-          .content .giveup  { background-color: #fffde7 !important; color: #f9a825 !important; } /* 노랑 */
-          .content .friend  { background-color: #fce4ec !important; color: #d81b60 !important; } /* 핑크 */
-          
-          /* 공포 게임 카드 배경 살짝 어둡게 (선택사항) */
-          .content .game-card.horror {
-              background-color: #fffbfc !important;
-          }
+          /* 상태별 색상 */
+          .gm-badge.ongoing { background-color: #e3f2fd !important; color: #1976d2 !important; }
+          .gm-badge.clear   { background-color: #e8f5e9 !important; color: #2e7d32 !important; }
+          .gm-badge.stop    { background-color: #f5f5f5 !important; color: #757575 !important; }
+          .gm-badge.giveup  { background-color: #fffde7 !important; color: #f9a825 !important; }
+          .gm-badge.friend  { background-color: #fce4ec !important; color: #d81b60 !important; }
