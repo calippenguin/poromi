@@ -27,18 +27,27 @@
             // 1. 모든 버튼에서 active 클래스 제거
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(btn => btn.classList.remove('active'));
-
-            // 2. 클릭한 버튼에 active 클래스 추가 (색상 고정)
+        
+            // 2. 클릭한 버튼에 active 클래스 추가
             element.classList.add('active');
-
-            // 3. tabs 폴더 내의 해당 html 파일을 가져와서 표시
+        
+            // 3. 파일 가져오기
             fetch(`./tabs/${tabName}.html`)
                 .then(response => {
                     if (!response.ok) throw new Error('네트워크 응답 없음');
                     return response.text();
                 })
                 .then(data => {
-                    document.getElementById('main-content').innerHTML = data;
+                    const container = document.getElementById('main-content');
+                    container.innerHTML = data;
+        
+                    // [핵심!] CSS가 먹히지 않는 현상 방지: 강제 리플로우 유도
+                    // 브라우저가 새 HTML을 인식하도록 잠시 숨겼다 보여주는 트릭입니다.
+                    container.style.display = 'none';
+                    container.offsetHeight; // 읽기 동작으로 강제 계산 유도
+                    container.style.display = 'block';
+                    
+                    console.log(`${tabName} 로드 완료 및 스타일 갱신 시도`);
                 })
                 .catch(error => {
                     console.error('탭 로딩 에러:', error);
