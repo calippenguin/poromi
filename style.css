@@ -330,6 +330,12 @@
               padding: 20px;
               width: 100%;
           }
+
+          .games-header h2 {
+              font-size: 1.8rem;
+              color: #333;
+              margin-bottom: 5px;
+          }
           
           .games-header { text-align: center; margin-bottom: 30px; }
           
@@ -394,6 +400,12 @@
           .history-header {
               text-align: center;
               margin-bottom: 40px;
+          }
+
+          .history-header h2 {
+              font-size: 1.8rem;
+              color: #333;
+              margin-bottom: 5px;
           }
           
           /* 타임라인 전체 컨테이너 */
