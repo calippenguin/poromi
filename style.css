@@ -340,7 +340,7 @@
               padding: 20px 0;
           }
           
-          /* 세로 중앙선 */
+          /* 세로 중앙선 */ 
           .timeline-container::after {
               content: '';
               position: absolute;
