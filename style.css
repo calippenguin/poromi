@@ -584,6 +584,77 @@ body {
     border: none;
 }
 
+/* -----------------------------------------------
+   팬 캐릭터 소개 섹션
+----------------------------------------------- */
+.fan-character-section {
+    margin-top: 40px;
+    border-top: 2px dashed #ffb6c1;
+    padding-top: 35px;
+}
+
+.fan-character-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.fan-character-header h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 8px 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+.fan-character-header p {
+    color: #888;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.fan-character-body {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* gif: 왼쪽 고정 너비, 소개 이미지와 같은 높이 */
+.fan-gif-box {
+    flex: 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5f8;
+    border-radius: 20px;
+    border: 2px solid #ffe4e1;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.fan-gif-box img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(255, 133, 162, 0.3));
+}
+
+/* 소개 이미지: 오른쪽 넓게 */
+.fan-intro-img-box {
+    flex: 1;
+    min-width: 0;
+}
+
+.fan-intro-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid #ffe4e1;
+    box-shadow: 0 5px 20px rgba(255, 182, 193, 0.2);
+    display: block;
+}
+
 /* ===============================================
    📱 모바일 반응형 (768px 이하)
 =============================================== */
@@ -726,6 +797,29 @@ body {
     .modal-content {
         padding: 20px 15px;
         width: 92%;
+    }
+
+    /* --- 팬캐릭터 --- */
+    .fan-character-body {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .fan-gif-box {
+        flex: none;
+        width: 100%;
+        max-width: 200px;
+        padding: 20px;
+    }
+
+    .fan-gif-box img {
+        max-width: 130px;
+    }
+
+    .fan-intro-img-box img {
+        height: auto;
+        object-fit: contain;
     }
 }
 
