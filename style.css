@@ -515,7 +515,7 @@ body {
     padding: 20px 0;
 }
 
-/* [수정] 중복되던 선 표현을 하나로 정리하고 정중앙 축 고정 */
+/* 중앙 수직선 (PC 기준 정중앙) */
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -538,17 +538,17 @@ body {
     margin-bottom: 30px;
 }
 
-/* PC 버전: 홀수번째(왼쪽 배치), 짝수번째(오른쪽 배치) */
+/* PC 버전: 홀수(왼쪽), 짝수(오른쪽) 배치 */
 .timeline-item:nth-child(odd)  { left: 0; text-align: right; margin-right: 50%; }
 .timeline-item:nth-child(even) { left: 50%; text-align: left; }
 
-/* [핵심 수정] 좌우 상관없이 동그라미 점을 무조건 수직선 정중앙에 자석처럼 고정 */
+/* 타임라인 동그라미 점 (PC 기준 정중앙 고정) */
 .timeline-item::after {
     content: '';
     position: absolute;
     top: 15px;
-    left: 50%; /* 수직선 위치인 50%로 고정 */
-    transform: translateX(-50%); /* 점 크기의 절반만큼 정확히 중앙 정렬 */
+    left: 50%;
+    transform: translateX(-50%);
     width: 16px; 
     height: 16px;
     background-color: white;
@@ -557,13 +557,7 @@ body {
     z-index: 3;
 }
 
-/* [삭제] 기존에 좌우로 점을 강제 이동시키던 꼬인 코드 초기화 */
-.timeline-item:nth-child(odd)::after,
-.timeline-item:nth-child(even)::after {
-    right: auto;
-}
-
-/* 월별 날짜 뱃지 스타일 */
+/* 날짜 및 콘텐츠 스타일 */
 .timeline-date {
     display: inline-block;
     padding: 5px 15px;
@@ -575,13 +569,13 @@ body {
     font-size: 0.9rem;
 }
 
-/* 기록 내용 상자 */
 .timeline-content {
     padding: 15px;
     background-color: #fff0f3;
     position: relative;
     border-radius: 15px;
     border: 1px solid #ffe4e1;
+    text-align: left; /* 내용 글자는 항상 왼쪽 정렬 */
 }
 
 .timeline-content p {
@@ -593,18 +587,44 @@ body {
 
 .timeline-content strong { color: #ff4d6d; }
 
-/* 하이라이트 아이템 (2025.12 베스 달성 월) */
+/* 하이라이트 아이템 */
 .timeline-item.highlight .timeline-content {
     background: linear-gradient(135deg, #ff85a2 0%, #ffb6c1 100%);
     box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
     border: none;
 }
-.timeline-item.highlight .timeline-content p {
-    color: #fff;
-}
-.timeline-item.highlight .timeline-content strong {
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+.timeline-item.highlight .timeline-content p { color: #fff; }
+.timeline-item.highlight .timeline-content strong { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+
+/* ==========================================================================
+   반응형 모바일 화면 설정 (화면 가로가 768px 이하일 때)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 선을 정중앙에서 왼쪽(기존 선 자리인 16px)으로 이동 */
+    .timeline-container::before {
+        left: 16px !important;
+        transform: none !important;
+    }
+
+    /* 모든 아이템 상자를 가로 100%로 채우고 왼쪽 여백 확보 */
+    .timeline-item {
+        width: 100% !important;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 10px 10px 10px 45px !important;
+        margin-right: 0 !important;
+    }
+
+    /* 모바일 선 위치(16px)에 맞춰서 점 위치도 정확하게 대응 */
+    .timeline-item::after {
+        left: 16px !important;
+        transform: translateX(-50%) !important; /* 선 두께 중심에 맞춤 */
+        top: 15px !important;
+    }
+
+    .timeline-date { font-size: 0.85rem; }
+    .timeline-content p { font-size: 0.88rem; }
 }
 
 /* -----------------------------------------------
