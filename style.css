@@ -509,8 +509,8 @@ body {
 
 .timeline-container {
     position: relative;
-    max-width: 800px;
-    margin: 40px auto;
+    width: 100%;
+    margin: 0 auto;
     padding: 20px 0;
 }
 
@@ -522,6 +522,48 @@ body {
     top: 0; bottom: 0; left: 50%;
     transform: translateX(-50%);
     z-index: 0;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* 정중앙에 위치 */
+    width: 4px; /* 선 두께 */
+    background-color: #ffb6c1; /* 로미님 테마 분홍색 */
+    transform: translateX(-50%); /* 두께의 절반만큼 왼쪽으로 밀어서 완벽한 중앙 정렬 */
+    z-index: 1;
+}
+
+.timeline-badge {
+    position: absolute;
+    left: 50%; /* 무조건 수직선 정중앙을 기준으로 시작 */
+    transform: translateX(-50%); /* 자기 크기의 절반만큼 왼쪽으로 밀어서 수직선과 중심 맞춤 */
+    background-color: #ff85a2;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2; /* 수직선보다 위에 오도록 설정 */
+    
+    /* 점 모양을 완벽한 원으로 만드는 경우를 대비한 보험 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 4px solid #ff85a2;
+    border-radius: 50%;
+    z-index: 2;
 }
 
 .timeline-item {
