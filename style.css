@@ -507,6 +507,7 @@ body {
     margin-bottom: 5px;
 }
 
+/* 타임라인 전체 컨테이너 */
 .timeline-container {
     position: relative;
     width: 100%;
@@ -514,84 +515,55 @@ body {
     padding: 20px 0;
 }
 
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: #ffb6c1;
-    top: 0; bottom: 0; left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-}
-
+/* [수정] 중복되던 선 표현을 하나로 정리하고 정중앙 축 고정 */
 .timeline-container::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 50%; /* 정중앙에 위치 */
-    width: 4px; /* 선 두께 */
-    background-color: #ffb6c1; /* 로미님 테마 분홍색 */
-    transform: translateX(-50%); /* 두께의 절반만큼 왼쪽으로 밀어서 완벽한 중앙 정렬 */
+    left: 50%;
+    width: 4px;
+    background-color: #ffb6c1;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
-.timeline-badge {
-    position: absolute;
-    left: 50%; /* 무조건 수직선 정중앙을 기준으로 시작 */
-    transform: translateX(-50%); /* 자기 크기의 절반만큼 왼쪽으로 밀어서 수직선과 중심 맞춤 */
-    background-color: #ff85a2;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    z-index: 2; /* 수직선보다 위에 오도록 설정 */
-    
-    /* 점 모양을 완벽한 원으로 만드는 경우를 대비한 보험 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* 개별 타임라인 아이템 상자 */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    z-index: 2;
+    margin-bottom: 30px;
 }
 
-.timeline-dot {
+/* PC 버전: 홀수번째(왼쪽 배치), 짝수번째(오른쪽 배치) */
+.timeline-item:nth-child(odd)  { left: 0; text-align: right; margin-right: 50%; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+/* [핵심 수정] 좌우 상관없이 동그라미 점을 무조건 수직선 정중앙에 자석처럼 고정 */
+.timeline-item::after {
+    content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 16px;
+    top: 15px;
+    left: 50%; /* 수직선 위치인 50%로 고정 */
+    transform: translateX(-50%); /* 점 크기의 절반만큼 정확히 중앙 정렬 */
+    width: 16px; 
     height: 16px;
     background-color: white;
     border: 4px solid #ff85a2;
     border-radius: 50%;
-    z-index: 2;
+    z-index: 3;
 }
 
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-    z-index: 1;
-    margin-bottom: 20px;
+/* [삭제] 기존에 좌우로 점을 강제 이동시키던 꼬인 코드 초기화 */
+.timeline-item:nth-child(odd)::after,
+.timeline-item:nth-child(even)::after {
+    right: auto;
 }
 
-.timeline-item:nth-child(odd)  { left: -10px; text-align: right; }
-.timeline-item:nth-child(even) { left: 50%; text-align: left; }
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 16px; height: 16px;
-    background-color: white;
-    border: 4px solid #ff85a2;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.timeline-item:nth-child(odd)::after  { right: -10px; }
-.timeline-item:nth-child(even)::after { left: -10px; }
-
+/* 월별 날짜 뱃지 스타일 */
 .timeline-date {
     display: inline-block;
     padding: 5px 15px;
@@ -603,6 +575,7 @@ body {
     font-size: 0.9rem;
 }
 
+/* 기록 내용 상자 */
 .timeline-content {
     padding: 15px;
     background-color: #fff0f3;
@@ -620,10 +593,18 @@ body {
 
 .timeline-content strong { color: #ff4d6d; }
 
+/* 하이라이트 아이템 (2025.12 베스 달성 월) */
 .timeline-item.highlight .timeline-content {
     background: linear-gradient(135deg, #ff85a2 0%, #ffb6c1 100%);
     box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
     border: none;
+}
+.timeline-item.highlight .timeline-content p {
+    color: #fff;
+}
+.timeline-item.highlight .timeline-content strong {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 /* -----------------------------------------------
