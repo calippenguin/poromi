@@ -507,7 +507,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* 타임라인 전체 컨테이너 */
 .timeline-container {
     position: relative;
     width: 100%;
@@ -515,49 +514,62 @@ body {
     padding: 20px 0;
 }
 
-/* 중앙 수직선 (PC 기준 정중앙) */
+/* 가운데 수직선 (중복 제거하고 하나만 깔끔하게 고정) */
 .timeline-container::before {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
     width: 4px;
     background-color: #ffb6c1;
+    top: 0; bottom: 0; left: 50%;
     transform: translateX(-50%);
     z-index: 1;
 }
 
-/* 개별 타임라인 아이템 상자 */
+/* 수직선을 지우는 가짜 중복코드 삭제 */
+.timeline-container::after { display: none; }
+
+/* 타임라인 개별 박스 (너비와 위치 재조정) */
 .timeline-item {
     position: relative;
     width: 50%;
-    padding: 10px 40px;
     box-sizing: border-box;
     z-index: 2;
     margin-bottom: 30px;
 }
 
-/* PC 버전: 홀수(왼쪽), 짝수(오른쪽) 배치 */
-.timeline-item:nth-child(odd)  { left: 0; text-align: right; margin-right: 50%; }
-.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+/* [핵심] 수직선(50%) 경계선에 완벽하게 밀착 정렬 */
+.timeline-item:nth-child(odd) { 
+    left: 0; 
+    padding: 10px 30px 10px 0; /* 오른쪽 패딩을 주어 선과 내용 간격 확보 */
+    text-align: right; 
+}
+.timeline-item:nth-child(even) { 
+    left: 50%; 
+    padding: 10px 0 10px 30px; /* 왼쪽 패딩을 주어 선과 내용 간격 확보 */
+    text-align: left; 
+}
 
-/* 타임라인 동그라미 점 (PC 기준 정중앙 고정) */
+/* [핵심] 박스의 경계면(선과 맞닿는 곳)에 점을 소수점까지 정밀하게 안착 */
 .timeline-item::after {
     content: '';
     position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 16px; 
     height: 16px;
     background-color: white;
     border: 4px solid #ff85a2;
+    top: 15px;
     border-radius: 50%;
     z-index: 3;
 }
 
-/* 날짜 및 콘텐츠 스타일 */
+/* 
+   박스 크기가 50%이므로, 
+   왼쪽 박스는 오른쪽 끝(right)에서 자신의 절반 크기(8px)만큼 넘어가야 선 정중앙에 위치함.
+   반대로 오른쪽 박스는 왼쪽 끝(left)에서 절반 크기만큼 넘어가야 함.
+*/
+.timeline-item:nth-child(odd)::after  { right: -10px; left: auto; }
+.timeline-item:nth-child(even)::after { left: -10px; right: auto; }
+
 .timeline-date {
     display: inline-block;
     padding: 5px 15px;
@@ -575,7 +587,6 @@ body {
     position: relative;
     border-radius: 15px;
     border: 1px solid #ffe4e1;
-    text-align: left; /* 내용 글자는 항상 왼쪽 정렬 */
 }
 
 .timeline-content p {
@@ -587,45 +598,13 @@ body {
 
 .timeline-content strong { color: #ff4d6d; }
 
-/* 하이라이트 아이템 */
 .timeline-item.highlight .timeline-content {
     background: linear-gradient(135deg, #ff85a2 0%, #ffb6c1 100%);
     box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
     border: none;
 }
 .timeline-item.highlight .timeline-content p { color: #fff; }
-.timeline-item.highlight .timeline-content strong { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-
-
-/* ==========================================================================
-   반응형 모바일 화면 설정 (화면 가로가 768px 이하일 때)
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* 선을 정중앙에서 왼쪽(기존 선 자리인 16px)으로 이동 */
-    .timeline-container::before {
-        left: 16px !important;
-        transform: none !important;
-    }
-
-    /* 모든 아이템 상자를 가로 100%로 채우고 왼쪽 여백 확보 */
-    .timeline-item {
-        width: 100% !important;
-        left: 0 !important;
-        text-align: left !important;
-        padding: 10px 10px 10px 45px !important;
-        margin-right: 0 !important;
-    }
-
-    /* 모바일 선 위치(16px)에 맞춰서 점 위치도 정확하게 대응 */
-    .timeline-item::after {
-        left: 16px !important;
-        transform: translateX(-50%) !important; /* 선 두께 중심에 맞춤 */
-        top: 15px !important;
-    }
-
-    .timeline-date { font-size: 0.85rem; }
-    .timeline-content p { font-size: 0.88rem; }
-}
+.timeline-item.highlight .timeline-content strong { color: #fff; }
 
 /* -----------------------------------------------
    팬 캐릭터 소개 섹션
